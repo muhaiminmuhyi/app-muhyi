@@ -1,71 +1,45 @@
 # app-muhyi
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+hallo aplikasi cuaca ini di buat menggunakan framework quarkus,
+oh iya aplikasi ini sudah support swagger dan openAPI yaa so kalian gausah ribet cari url url nya :)),
+semoga kalian bisa membaca code ku yaaa hehehe , bantu follow :))
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+#### Getting Started
+1. Cek configurasi application.properties karna ini menggunakan postgresql dan panache
+2. Antar hubungan database terdapat di package Models yaaa
 
-## Running the application in dev mode
+#### POST WEATHER
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
+Bagaimana sih jika ingin mengepost ke database ?? nah ini aku udah sediain tamplate json,
+agar kalian bisa langsung copy paste ke aplikasi PostMan kalian atau insomnia, ini dia template json nya <br /><br />
+``` 
+{
+    "city" : " ",
+    "tempLow" : ,
+    "tempHigh" : ,
+    "humidity" : ,
+    "windSpeed" : ,
+    "windBearing" : ,
+    "visibility" : ,
+    "category" : " ",
+    "summary" : " "
+}
 ```
+<br /> <br />
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+#### GETBYID AND DELETE AND PUT
 
-## Packaging and running the application
+nah sekarang delete dan get by id nih temen temen buat getbyid dan delete dan juga put ini menggunakan time ya temen temen <br />
+``` 
+http://localhost:8080/weather/10:30:40 
+``` 
+<br/>
 
-The application can be packaged using:
-```shell script
-./mvnw package
+#### GET ALL BY CITY
+nah ada juga nih buat mencari data sesuai kota nya contoh kita di sini ingin mencari semua cuaca bekasi <br />
 ```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
-
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
+http://localhost:8080/weather/all/Bekasi
 ```
+<br />
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
-
-## Creating a native executable
-
-You can create a native executable using: 
-```shell script
-./mvnw package -Pnative
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./target/app-muhyi-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
-
-## Related Guides
-
-- Hibernate ORM ([guide](https://quarkus.io/guides/hibernate-orm)): Define your persistent model with Hibernate ORM and JPA
-- Hibernate Validator ([guide](https://quarkus.io/guides/validation)): Validate object properties (field, getter) and method parameters for your beans (REST, CDI, JPA)
-- RESTEasy Reactive ([guide](https://quarkus.io/guides/resteasy-reactive)): A JAX-RS implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
-- JDBC Driver - PostgreSQL ([guide](https://quarkus.io/guides/datasource)): Connect to the PostgreSQL database via JDBC
-
-## Provided Code
-
-### Hibernate ORM
-
-Create your first JPA entity
-
-[Related guide section...](https://quarkus.io/guides/hibernate-orm)
-
-
-
-### RESTEasy Reactive
-
-Easily start your Reactive RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+jadi semoga beberapa petunjuk ini membantu kalian yaaa , makasih dah mampir :))
