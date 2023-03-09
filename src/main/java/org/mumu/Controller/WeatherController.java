@@ -25,6 +25,10 @@ public class WeatherController {
     }
 
     @GET
+    @Path("pdf")
+    public Weather[] pdfWeather() throws Exception {return weatherService.weatherPdf(); }
+
+    @GET
     @Path("all/{city}")
     public List<Weather> getListAllByCity(@PathParam("city") String city) {return weatherService.weatherAll(city); }
 

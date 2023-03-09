@@ -15,7 +15,10 @@ import javax.ws.rs.core.Response;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 @ApplicationScoped
 public class WeatherService {
@@ -36,6 +39,8 @@ public class WeatherService {
     LocalDate currentDate = LocalDate.now();
     LocalTime currentTime = LocalTime.now();
     DateTimeFormatter newFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
+    @Inject
+    JasperReportGeneratorService jasperReportGeneratorService;
 
 
     public List<Weather> weatherList(){
@@ -101,5 +106,15 @@ public class WeatherService {
     public Response deleteWeather(String time){
         Weather.delete("time=?1", LocalTime.parse(time));
         return Response.ok().entity("Successfully").build();
+    }
+
+    public Weather[] weatherPdf() throws Exception {
+        String uuidToken = UUID.randomUUID().toString();
+        String fileName = "report"+"_"+ uuidToken + ".pdf";
+        String outputFileName = "external_resource/generatedReport/" + fileName;
+        Map<String, Object> parameters = new HashMap<>();
+        String jasperReportPath = "external_resource/jasperReport/sample.jrxml";
+        jasperReportGeneratorService.generatedPdfReport(jasperReportPath, outputFileName, parameters);
+        return Weather.listAll().toArray(new Weather[0]);
     }
 }
