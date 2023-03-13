@@ -84,18 +84,11 @@ ODM2MC0yYjRlNWZiN2QyYmQ7]]>
         <band height="136" splitType="Stretch">
             <staticText>
                 <reportElement style="Title" x="170" y="0" width="263" height="62" uuid="237ff744-a928-40c9-9236-74c6fb6e5072"/>
-                <textElement verticalAlignment="Middle">
+                <textElement textAlignment="Center" verticalAlignment="Middle">
                     <font pdfFontName="Times-Roman"/>
                 </textElement>
                 <text><![CDATA[Weather Ku]]></text>
             </staticText>
-<!--            <staticText>-->
-<!--                <reportElement style="SubTitle" x="219" y="62" width="196" height="22" uuid="ea798e7f-73ea-43db-be42-301b5e1037c9"/>-->
-<!--                <textElement>-->
-<!--                    <font fontName="Times New Roman" pdfFontName="Times-Roman"/>-->
-<!--                </textElement>-->
-<!--                <text><![CDATA[Weather Indonesia]]></text>-->
-<!--            </staticText>-->
             <staticText>
                 <reportElement x="0" y="94" width="383" height="42" uuid="a45ae54e-6fe1-407a-9b84-9fee660717bd"/>
                 <textElement textAlignment="Left">
@@ -137,7 +130,7 @@ ODM2MC0yYjRlNWZiN2QyYmQ7]]>
         <band height="200" splitType="Stretch">
             <property name="local_mesure_unitheight" value="pixel"/>
             <componentElement>
-                <reportElement x="0" y="0" width="555" height="200" uuid="d1081975-a3d1-4e9f-8a2c-db6223558d24">
+                <reportElement mode="Transparent" x="165" y="40" width="272" height="121" uuid="d1081975-a3d1-4e9f-8a2c-db6223558d24">
                     <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
                     <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
                     <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
