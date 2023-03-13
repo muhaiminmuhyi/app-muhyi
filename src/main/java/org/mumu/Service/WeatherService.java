@@ -4,20 +4,20 @@ package org.mumu.Service;
 
 import com.oracle.svm.core.annotate.Inject;
 import io.vertx.core.json.JsonObject;
+import net.sf.jasperreports.engine.JasperPrint;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.jboss.logging.Logger;
 import org.mumu.Exception.CustomException;
 import org.mumu.Models.Weather;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import javax.ws.rs.core.Response;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @ApplicationScoped
@@ -29,6 +29,9 @@ public class WeatherService {
     @Inject
     Logger log;
 
+    @Inject
+    EntityManager entityManager;
+
     @ConfigProperty(name = "app-muhyi.custom.error.msg.notfound")
     String notFound;
 
@@ -39,7 +42,7 @@ public class WeatherService {
     LocalDate currentDate = LocalDate.now();
     LocalTime currentTime = LocalTime.now();
     DateTimeFormatter newFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
-    @Inject
+    @javax.inject.Inject
     JasperReportGeneratorService jasperReportGeneratorService;
 
 
@@ -108,13 +111,11 @@ public class WeatherService {
         return Response.ok().entity("Successfully").build();
     }
 
-    public Weather[] weatherPdf() throws Exception {
+    public void weatherPdf() throws Exception {
         String uuidToken = UUID.randomUUID().toString();
-        String fileName = "report"+"_"+ uuidToken + ".pdf";
-        String outputFileName = "external_resource/generatedReport/" + fileName;
-        Map<String, Object> parameters = new HashMap<>();
-        String jasperReportPath = "external_resource/jasperReport/sample.jrxml";
-        jasperReportGeneratorService.generatedPdfReport(jasperReportPath, outputFileName, parameters);
-        return Weather.listAll().toArray(new Weather[0]);
+        String fileName = "report" + "_" + uuidToken + ".pdf";
+        String outputFileName = "external_resources/generatedReport/" + fileName;
+        String jasperReportPath = "external_resources/jasperReport/sample.jrxml";
+        jasperReportGeneratorService.generatePdfReport(jasperReportPath, outputFileName);
     }
 }

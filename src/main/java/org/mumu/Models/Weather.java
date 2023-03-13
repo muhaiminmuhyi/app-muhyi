@@ -9,6 +9,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
+@Table(name = "weather")
+@NamedQuery(name = "Weather.findall", query = "select w.city, w.date, w.time from Weather w", hints = @QueryHint(name = "org.hibernate.cacheable", value = "true"))
+@Cacheable
 public class Weather extends PanacheEntityBase {
 
     @Id

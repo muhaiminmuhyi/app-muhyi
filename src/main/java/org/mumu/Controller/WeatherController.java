@@ -1,11 +1,11 @@
 package org.mumu.Controller;
 
 import io.vertx.core.json.JsonObject;
+import net.sf.jasperreports.engine.JasperPrint;
 import org.mumu.Models.Weather;
 import org.mumu.Service.WeatherService;
 
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -26,7 +26,7 @@ public class WeatherController {
 
     @GET
     @Path("pdf")
-    public Weather[] pdfWeather() throws Exception {return weatherService.weatherPdf(); }
+    public void pdfWeather() throws Exception { weatherService.weatherPdf(); }
 
     @GET
     @Path("all/{city}")

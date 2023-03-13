@@ -15,17 +15,14 @@ public class JasperReportGeneratorService {
         this.dataSource = dataSource;
     }
 
-    public void generatedPdfReport(String jasperReportPath, String outputFileName, Map<String, Object> map) throws Exception {
-        System.out.println("Connection: " + dataSource.getConnection());
+    public void generatePdfReport(String jasperReportPath, String outputFileName) throws Exception {
         JasperReport jasperReport = JasperCompileManager.compileReport(jasperReportPath);
         Connection connection = null;
-
         try {
             connection = dataSource.getConnection();
-            System.out.println("Connection: " + connection);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, map, connection);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, connection);
             JasperExportManager.exportReportToPdfFile(jasperPrint, outputFileName);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

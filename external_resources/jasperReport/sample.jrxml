@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_Table_Based" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc97a963-c0b6-4c19-a348-7e2773e092a3">
-    <property name="template.engine" value="tabular_template"/>
-    <property name="com.jaspersoft.studio.data.sql.tables" value="a25vd25fZnJ1aXRzICwxNSwxNSwyODBjNzQyOS05Y2IxLTQyMjItOTI4Ni1jZDg1MzE4Y2JlOWQ7"/>
-    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Coffee_Table_Based" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="868819c0-2e1e-457b-84c5-82067f527855">
+    <property name="com.jaspersoft.studio.data.sql.tables">
+        <![CDATA[a2F3YWhfc2NoZW1hLmtub3duX2ZydWl0cyBBUyAsMTc3LDExMyw4YmUyZGY2MS1lNmE1LTQ0ZjEt
+ODM2MC0yYjRlNWZiN2QyYmQ7]]>
+    </property>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="kawah-edu"/>
+    <style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+    <style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+    <style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+    <style name="Detail" fontName="Arial" fontSize="12"/>
+    <style name="Row" mode="Transparent">
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style backcolor="#E6DAC3"/>
+        </conditionalStyle>
+    </style>
     <style name="Table">
         <box>
             <pen lineWidth="1.0" lineColor="#000000"/>
@@ -22,7 +34,7 @@
             <rightPen lineWidth="0.5" lineColor="#000000"/>
         </box>
     </style>
-    <style name="Table_CH" mode="Opaque" backcolor="#EFEFEF">
+    <style name="Table_CH" mode="Opaque" forecolor="#B89F7D" backcolor="#F2EBDF">
         <box>
             <pen lineWidth="0.5" lineColor="#000000"/>
             <topPen lineWidth="0.5" lineColor="#000000"/>
@@ -39,92 +51,173 @@
             <bottomPen lineWidth="0.5" lineColor="#000000"/>
             <rightPen lineWidth="0.5" lineColor="#000000"/>
         </box>
+        <conditionalStyle>
+            <conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+            <style mode="Transparent" backcolor="#E6DAC3"/>
+        </conditionalStyle>
     </style>
-    <subDataset name="tableDataset" uuid="0a36b2b3-b943-4390-8cfc-9c23ff13754a">
-        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+    <subDataset name="tableDataset" uuid="64d6d6a2-a342-4a08-b26a-614c0f302d0d">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="yukchat"/>
         <queryString language="SQL">
-            <![CDATA[SELECT known_fruits.id,
-	known_fruits.name
-FROM known_fruits]]>
+            <![CDATA[SELECT city, date, time FROM public.weather]]>
         </queryString>
-        <field name="id" class="java.lang.Integer">
-            <property name="com.jaspersoft.studio.field.label" value="id"/>
-            <property name="com.jaspersoft.studio.field.tree.path" value="known_fruits"/>
+        <field name="city" class="java.lang.String">
+            <property name="com.jaspersoft.studio.field.name" value="city"/>
+            <property name="com.jaspersoft.studio.field.label" value="city"/>
+            <property name="com.jaspersoft.studio.field.tree.path" value="weather"/>
         </field>
-        <field name="name" class="java.lang.String">
-            <property name="com.jaspersoft.studio.field.label" value="name"/>
-            <property name="com.jaspersoft.studio.field.tree.path" value="known_fruits"/>
+        <field name="date" class="java.lang.String">
+            <property name="com.jaspersoft.studio.field.name" value="date"/>
+            <property name="com.jaspersoft.studio.field.label" value="date"/>
+            <property name="com.jaspersoft.studio.field.tree.path" value="weather"/>
+        </field>
+        <field name="time" class="java.lang.String">
+            <property name="com.jaspersoft.studio.field.name" value="time"/>
+            <property name="com.jaspersoft.studio.field.label" value="time"/>
+            <property name="com.jaspersoft.studio.field.tree.path" value="weather"/>
         </field>
     </subDataset>
     <queryString>
         <![CDATA[]]>
     </queryString>
     <title>
-        <band height="79" splitType="Stretch"/>
+        <band height="136" splitType="Stretch">
+            <staticText>
+                <reportElement style="Title" x="170" y="0" width="263" height="62" uuid="237ff744-a928-40c9-9236-74c6fb6e5072"/>
+                <textElement verticalAlignment="Middle">
+                    <font pdfFontName="Times-Roman"/>
+                </textElement>
+                <text><![CDATA[Weather Ku]]></text>
+            </staticText>
+<!--            <staticText>-->
+<!--                <reportElement style="SubTitle" x="219" y="62" width="196" height="22" uuid="ea798e7f-73ea-43db-be42-301b5e1037c9"/>-->
+<!--                <textElement>-->
+<!--                    <font fontName="Times New Roman" pdfFontName="Times-Roman"/>-->
+<!--                </textElement>-->
+<!--                <text><![CDATA[Weather Indonesia]]></text>-->
+<!--            </staticText>-->
+            <staticText>
+                <reportElement x="0" y="94" width="383" height="42" uuid="a45ae54e-6fe1-407a-9b84-9fee660717bd"/>
+                <textElement textAlignment="Left">
+                    <font size="10"/>
+                </textElement>
+                <text><![CDATA[Berikut adalah hasil penelitian cuaca yang nanti nya akan di bentuk kepada ramalan cuaca, berikut data yang terlampir:]]></text>
+            </staticText>
+        </band>
     </title>
     <pageFooter>
-        <band height="38" splitType="Stretch"/>
+        <band height="25" splitType="Stretch">
+            <frame>
+                <reportElement mode="Opaque" x="-21" y="1" width="597" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="f370a57d-f130-4e84-b9f5-c53b431e92db"/>
+                <textField evaluationTime="Report">
+                    <reportElement style="Column header" x="533" y="0" width="40" height="20" forecolor="#736343" uuid="c6c05541-d642-485d-8bdb-cab31d35d221"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement style="Column header" x="453" y="0" width="80" height="20" forecolor="#736343" uuid="cbd3293d-23a4-436e-ac43-493d867d2b16"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+                </textField>
+                <textField pattern="EEEEE dd MMMMM yyyy">
+                    <reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="3a6deb2b-90af-40e2-b90d-d18cb599e55a"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="10" isBold="false"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+                </textField>
+            </frame>
+        </band>
     </pageFooter>
     <summary>
         <band height="200" splitType="Stretch">
             <property name="local_mesure_unitheight" value="pixel"/>
             <componentElement>
-                <reportElement x="0" y="0" width="555" height="200" uuid="de9ddfc0-f4dd-4937-9f01-af25abcbeb65">
+                <reportElement x="0" y="0" width="555" height="200" uuid="d1081975-a3d1-4e9f-8a2c-db6223558d24">
                     <property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
                     <property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
                     <property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
                 </reportElement>
                 <jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
-                    <datasetRun subDataset="tableDataset" uuid="9c0cf5cf-83b7-478f-80cf-2c148612bba1">
+                    <datasetRun subDataset="tableDataset" uuid="7f4685f2-8508-41ec-80bf-72c411852239">
                         <connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
                     </datasetRun>
-                    <jr:column width="90" uuid="948ae570-72c0-48c9-ba87-598651c73d83">
+                    <jr:column width="90" uuid="c51e5b06-0abb-470f-9e7f-8793838f6477">
                         <jr:tableHeader style="Table_TH" height="30"/>
                         <jr:tableFooter style="Table_TH" height="30"/>
                         <jr:columnHeader style="Table_CH" height="30">
                             <staticText>
-                                <reportElement x="0" y="0" width="90" height="30" uuid="90694ab8-41bd-4719-9489-77ba8dcc242d"/>
+                                <reportElement key="" style="SubTitle" x="0" y="0" width="90" height="30" forecolor="#736343" uuid="bcd6b687-ca2b-4bbc-a19f-a61c59a55669"/>
                                 <box leftPadding="2"/>
                                 <textElement>
-                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                    <font fontName="Arial" size="18" isBold="true"/>
                                 </textElement>
-                                <text><![CDATA[id]]></text>
+                                <text><![CDATA[city]]></text>
                             </staticText>
                         </jr:columnHeader>
                         <jr:columnFooter style="Table_CH" height="30"/>
                         <jr:detailCell style="Table_TD" height="30">
                             <textField>
-                                <reportElement x="0" y="0" width="90" height="30" uuid="9f59788a-4711-4119-b4d0-a886a4401d40"/>
+                                <reportElement style="Detail" x="0" y="0" width="90" height="30" uuid="c3cfce6e-c429-4856-ae2a-d1fbef081864"/>
                                 <box leftPadding="2"/>
                                 <textElement>
-                                    <font fontName="DejaVu Sans" size="12"/>
+                                    <font fontName="Arial" size="12"/>
                                 </textElement>
-                                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+                                <textFieldExpression><![CDATA[$F{city}]]></textFieldExpression>
                             </textField>
                         </jr:detailCell>
                     </jr:column>
-                    <jr:column width="90" uuid="ab8ed1d4-be92-4d85-9474-cde2c13d9fa1">
+                    <jr:column width="90" uuid="7b9e54a2-15b4-4015-9b87-2af15ff816ea">
                         <jr:tableHeader style="Table_TH" height="30"/>
                         <jr:tableFooter style="Table_TH" height="30"/>
                         <jr:columnHeader style="Table_CH" height="30">
                             <staticText>
-                                <reportElement x="0" y="0" width="90" height="30" uuid="85ec4f5e-9806-4a3f-a633-d3c1b8d20e28"/>
+                                <reportElement key="" style="SubTitle" x="0" y="0" width="90" height="30" forecolor="#736343" uuid="6504a736-56f0-4149-b2b6-b64e9faf48e5"/>
                                 <box leftPadding="2"/>
                                 <textElement>
-                                    <font fontName="DejaVu Sans" size="12" isBold="true"/>
+                                    <font fontName="Arial" size="18" isBold="true"/>
                                 </textElement>
-                                <text><![CDATA[name]]></text>
+                                <text><![CDATA[date]]></text>
                             </staticText>
                         </jr:columnHeader>
                         <jr:columnFooter style="Table_CH" height="30"/>
                         <jr:detailCell style="Table_TD" height="30">
                             <textField>
-                                <reportElement x="0" y="0" width="90" height="30" uuid="32a60201-c28e-488d-aaa3-3f7a97cc06b2"/>
+                                <reportElement style="Detail" x="0" y="0" width="90" height="30" uuid="0eb14d09-e6a1-4c89-ab02-a5775cfe2b78"/>
                                 <box leftPadding="2"/>
                                 <textElement>
-                                    <font fontName="DejaVu Sans" size="12"/>
+                                    <font fontName="Arial" size="12"/>
                                 </textElement>
-                                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+                                <textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+                            </textField>
+                        </jr:detailCell>
+                    </jr:column>
+                    <jr:column width="90" uuid="7b9e54a2-15b4-4015-9b87-2af15ff816ea">
+                        <jr:tableHeader style="Table_TH" height="30"/>
+                        <jr:tableFooter style="Table_TH" height="30"/>
+                        <jr:columnHeader style="Table_CH" height="30">
+                            <staticText>
+                                <reportElement key="" style="SubTitle" x="0" y="0" width="90" height="30" forecolor="#736343" uuid="6504a736-56f0-4149-b2b6-b64e9faf48e5"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="Arial" size="18" isBold="true"/>
+                                </textElement>
+                                <text><![CDATA[time]]></text>
+                            </staticText>
+                        </jr:columnHeader>
+                        <jr:columnFooter style="Table_CH" height="30"/>
+                        <jr:detailCell style="Table_TD" height="30">
+                            <textField>
+                                <reportElement style="Detail" x="0" y="0" width="90" height="30" uuid="0eb14d09-e6a1-4c89-ab02-a5775cfe2b78"/>
+                                <box leftPadding="2"/>
+                                <textElement>
+                                    <font fontName="Arial" size="12"/>
+                                </textElement>
+                                <textFieldExpression><![CDATA[$F{time}]]></textFieldExpression>
                             </textField>
                         </jr:detailCell>
                     </jr:column>
