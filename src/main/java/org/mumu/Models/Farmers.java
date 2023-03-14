@@ -20,6 +20,8 @@ public class Farmers extends PanacheEntityBase {
 
     public Integer total;
 
+    public boolean isChecked;
+
     public LocalDate createdAt;
 
     public LocalDate updatedAt;
