@@ -2,16 +2,13 @@ package org.mumu.Service;
 
 
 
-import com.oracle.svm.core.annotate.Inject;
 import io.vertx.core.json.JsonObject;
-import net.sf.jasperreports.engine.JasperPrint;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
-import org.jboss.logging.Logger;
 import org.mumu.Exception.CustomException;
 import org.mumu.Models.Weather;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityManager;
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.core.Response;
 import java.time.LocalDate;
@@ -26,12 +23,6 @@ public class WeatherService {
     CategoryService categoryService = new CategoryService();
     SummaryService summaryService = new SummaryService();
 
-    @Inject
-    Logger log;
-
-    @Inject
-    EntityManager entityManager;
-
     @ConfigProperty(name = "app-muhyi.custom.error.msg.notfound")
     String notFound;
 
@@ -42,7 +33,7 @@ public class WeatherService {
     LocalDate currentDate = LocalDate.now();
     LocalTime currentTime = LocalTime.now();
     DateTimeFormatter newFormat = DateTimeFormatter.ofPattern("HH:mm:ss");
-    @javax.inject.Inject
+    @Inject
     JasperReportGeneratorService jasperReportGeneratorService;
 
 
